@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC
+"-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+"http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+			<form-validation>
+				<formset>
+					<form name="loginForm">
+						<field property="userName" depends="required">
+							<arg key="loginform.username" />
+						</field>
+						<field property="password" depends="required">
+							<arg key="loginform.password.display" />
+						</field>
+					</form>
+					<form name="calcForm">
+						<field property="number1" depends="required,intRange">
+							<arg key="calcform.num1.display" />
+							<arg position="1" name="intRange" key="${var:min}"
+								resource="false" />
+							<arg position="2" name="intRange" key="${var:max}"
+								resource="false" />
+							<var>
+								<var-name>min</var-name>
+								<var-value>10</var-value>
+							</var>
+							<var>
+								<var-name>max</var-name>
+								<var-value>20</var-value>
+							</var>
+						</field>
+						<field property="number2" depends="required">
+							<arg key="calcform.num2.display" />
+						</field>
+					</form>
+
+				</formset>
+
+			</form-validation>
